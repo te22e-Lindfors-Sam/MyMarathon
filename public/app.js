@@ -13,6 +13,6 @@ function googleLogin(){
         
             .then(result => {
                 const user = result.user;        
-                document.write("hello " + user.displayName);
+                window.location.assign("home.html");
             })  
 }
