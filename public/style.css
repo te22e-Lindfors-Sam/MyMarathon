@@ -1,0 +1,35 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    /* background-image: url(images/running.webp);
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+body, html {
+    height: 100%;
+}
+main {
+    background-image: url(images/running.webp);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+    background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+}
+section{
+    height: 75%;
+}
+footer{
+    background-color: navy;
+    height: 20%;
+}
