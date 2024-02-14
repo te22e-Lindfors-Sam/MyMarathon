@@ -5,39 +5,20 @@ document.addEventListener("DOMContentLoaded", event =>{
     console.log(storedObject.displayName);
 });
 
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-  const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+window.onscroll = function() {myFunction()};
 
-  // Adjust for margins
-  const elementTop = rect.top + window.scrollY - parseInt(window.getComputedStyle(el).marginTop);
-  const elementBottom = rect.bottom + window.scrollY + parseInt(window.getComputedStyle(el).marginBottom);
-  const elementLeft = rect.left + window.scrollX - parseInt(window.getComputedStyle(el).marginLeft);
-  const elementRight = rect.right + window.scrollX + parseInt(window.getComputedStyle(el).marginRight);
+// Get the navbar
+var navbar = document.getElementsByClassName('nav');
 
-  return (
-    elementTop < windowHeight &&
-    elementBottom > 0 &&
-    elementLeft < windowWidth &&
-    elementRight > 0
-  );
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  navbar.classList.add("sticky")
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
   }
-
-  // Function to handle visibility status
-  function handleVisibility() {
-    const targetElement = document.querySelector('.test');
-    
-    if (isElementInViewport(targetElement)) {
-      console.log('Element is in the viewport!');
-    } else {
-      console.log('Element is out of the viewport!');
-    }
-  }
-
-  // Attach the handleVisibility function to scroll and resize events
-  window.addEventListener('scroll', handleVisibility);
-  window.addEventListener('resize', handleVisibility);
-
-  // Initial check when the page loads
-  handleVisibility();
+}

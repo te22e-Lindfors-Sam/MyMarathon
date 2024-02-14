@@ -1,12 +1,7 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    /* background-image: url(images/running.webp);
-    background-repeat: no-repeat;
-    background-size: cover; */
-}
 body, html {
     height: 100%;
+    /* padding: 0px;
+    margin: 0px; */
 }
 main {
     background-image: url(images/running.webp);
@@ -16,12 +11,32 @@ main {
     background-size: cover;
 }
 nav{
+    overflow: hidden;
     background-color: #333;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
+nav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    padding: 16px;
+}
+
+
+  
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 60px;
+  }
 .overlay{
     height: 100%;
     width: 100%;
