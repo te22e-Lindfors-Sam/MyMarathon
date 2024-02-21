@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", event =>{
-    // const app = firebase.app(); //only checks if the server is live
+    const app = firebase.app(); //only checks if the server is live
     window.addEventListener('scroll', stickynavbar);
     navbar = document.getElementById('navbar'); 
     navTop = navbar.offsetTop;
@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", event =>{
     const storedObject = JSON.parse(storedValue);
     var name = document.getElementById("userName");
     name.textContent = storedObject.displayName; 
+
+    firebase.database().ref('users/' + storedObject.uid).set({
+      username: storedObject.displayName,
+      email: storedObject.email,
+  });
+
 });
 
 
@@ -21,6 +27,7 @@ let navTop;
 
 
 function stickynavbar() {
+  console.log("acitve");
   if (window.scrollY >= navTop) {   
     navbar.classList.add('sticky');
   } 
