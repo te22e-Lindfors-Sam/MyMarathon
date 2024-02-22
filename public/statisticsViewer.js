@@ -63,7 +63,7 @@ function AddDistance(){
 
   firebase.database().ref('users/' + storedObject.uid + '/' + 'RunningsDistances/').set({
     DistanceRunned: RunDist,
-    TimeRunned: RunTimeraceDist,
+    TimeRunned: RunTime,
   });
 }
 
