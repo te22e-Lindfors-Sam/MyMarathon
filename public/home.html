@@ -27,11 +27,12 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="statisticsViewer.css">
   </head>
   <body>
     <!-- <script src="user.js"></script> -->
     <script src="navbar.js"></script>
-    <p>hes</p>
+    <script src="statisticsViewer.js"></script>
 
     <main class="main">
       <div class="overlay">
@@ -49,20 +50,78 @@
 
 
 
-    <section class="statistics">
-      <div class="statDiv">
-        <h2>Last 10 Races</h2>
-        <div class="piechart">
+
+    <section>
+      <div class="slideshow-container">
+
+        <div class="statistics" id="races">
+          
+          <div class="statDiv fade">
+            <h2>Races Ran</h2>
+            <div class="piechart" id="RacesRan"></div>
+          </div>
+          
+          <div class="statDiv fade">
+            <ul>
+            </ul>
+
+            <button id="RaceBtn">Add Distance Ran</button>
+
+            <div id="RaceModal" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                  <p>Some text in the Modal Body</p>
+                  <p>Some other text...</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <div class="statistics" id="distancensRun">
+          
+          <div class="statDiv fade">
+            <h2>Distances Ran</h2>
+            <div class="piechart" id="chartDistance"></div>
+          </div>
+          
+          <div class="statDiv fade">
+            <ul>
+            </ul>
+
+            <button id="DistanceBtn">Add Distance Ran</button>
+            
+            <div id="DistanceModal" class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                  <p>Some text in the Modal Body</p>
+                  <p>Some other text...</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <a class="prev" onclick="PlusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="PlusSlides(1)">&#10095;</a>
+
       </div>
-      <div class="piechartLabels"> 
-        <ul>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-        </ul>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="CurrentSlide(1)"></span>
+        <span class="dot" onclick="CurrentSlide(2)"></span>
       </div>
+
     </section>
 
     <section class="food">

@@ -13,9 +13,6 @@ main {
     align-items: center;
     justify-content: right;
 }
-
-  
- 
 .overlay{
     padding: 15%;
     height: 100%;
@@ -36,30 +33,7 @@ main {
 }
 section{
     height: 75%;
-    border: 10px solid salmon;
 }
-.statistics{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.statDiv{
-    height: 100%;
-    width: 50%;
-    text-align: center;
-}
-.piechart{
-    background-image: conic-gradient(orange 64%, blue 64%, blue 81%, black 81%);
-    border-radius: 50%;
-    width: 80%;
-    height: 80%;
-    margin:10%;
-    margin-top: 3%;
-}
-.piechartLabels{
-    font-size: xx-large;
-}
-
 footer{
     background-color: navy;
     height: 20%;
