@@ -45,26 +45,33 @@ document.addEventListener("DOMContentLoaded", event =>{
 
 function AddRace(){
 
+  console.log("addedRace");
   var raceName = document.getElementById("RaceName").value;
   var raceDist = document.getElementById("RaceDist").value;
   var raceTime = document.getElementById("RaceTime").value;
 
-  firebase.database().ref('users/' + storedObject.uid + '/' + 'races/' + raceName).set({
+  firebase.database().ref('users/' + user.uid + '/' + 'races/' + raceName).set({
     name: raceName,
     distanace: raceDist,
     time: raceTime
   });
+
+  var raceModal = document.getElementById("RaceModal");
+  raceModal.style.display = "none";
 }
 
 function AddDistance(){
-
+  console.log("added");
   var RunDist = document.getElementById("RunDist").value;
   var RunTime = document.getElementById("RunTime").value; 
 
-  firebase.database().ref('users/' + storedObject.uid + '/' + 'RunningsDistances/').set({
+  firebase.database().ref('users/' + user.uid + '/' + 'RunningsDistances/').set({
     DistanceRunned: RunDist,
     TimeRunned: RunTime,
   });
+
+  var distModal = document.getElementById("DistanceModal");
+  distModal.style.display = "none";
 }
 
 
