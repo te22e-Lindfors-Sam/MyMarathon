@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", event =>{
     firebase.database().ref('users/' + storedObject.uid).set({
       username: storedObject.displayName,
       email: storedObject.email,
-  });
+    });
 
 });
 

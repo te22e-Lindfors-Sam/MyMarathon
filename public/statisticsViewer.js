@@ -1,6 +1,9 @@
 let slideIndex = 1;
+var user;
 
 document.addEventListener("DOMContentLoaded", event =>{
+    const storedValue = localStorage.getItem('user');
+    user = JSON.parse(storedValue);
     //sets up the slide an loads the first one
     showSlides(slideIndex);
 
@@ -34,6 +37,36 @@ document.addEventListener("DOMContentLoaded", event =>{
 
     };
 });
+
+// firebase.database().ref('users/' + storedObject.uid).set({
+//   username: storedObject.displayName,
+//   email: storedObject.email,
+// });
+
+function AddRace(){
+
+  var raceName = document.getElementById("RaceName").value;
+  var raceDist = document.getElementById("RaceDist").value;
+  var raceTime = document.getElementById("RaceTime").value;
+
+  firebase.database().ref('users/' + storedObject.uid + '/' + 'races/' + raceName).set({
+    name: raceName,
+    distanace: raceDist,
+    time: raceTime
+  });
+}
+
+function AddDistance(){
+
+  var RunDist = document.getElementById("RunDist").value;
+  var RunTime = document.getElementById("RunTime").value; 
+
+  firebase.database().ref('users/' + storedObject.uid + '/' + 'RunningsDistances/').set({
+    DistanceRunned: RunDist,
+    TimeRunned: RunTimeraceDist,
+  });
+}
+
 
 //changes slide
 function PlusSlides(n) {
