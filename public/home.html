@@ -26,13 +26,14 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="statisticsViewer.css">
+    <link rel="stylesheet" href="navbar/navbar.css">
+    <link rel="stylesheet" href="stats/statisticsViewer.css">
+    <link rel="stylesheet" href="food/foodShower.css">
   </head>
   <body>
     <!-- <script src="user.js"></script> -->
-    <script src="navbar.js"></script>
-    <script src="statisticsViewer.js"></script>
+    <script src="navbar/navbar.js"></script>
+    <script src="stats/statisticsViewer.js"></script>
 
     <main class="main">
       <div class="overlay">
@@ -62,10 +63,10 @@
           </div>
           
           <div class="statDiv fade">
-            <ul>
+            <ul id="RaceList">
             </ul>
 
-            <button id="RaceBtn">Add Distance Ran</button>
+            <button id="RaceBtn">Add Race </button>
 
             <div id="RaceModal" class="modal">
               <div class="modal-content">
@@ -106,8 +107,8 @@
                 </div>
                 <div class="modal-body">
                   <p>How many kms did you run? <input type="number" id="RunDist"></p>
-                  <p>How long time did you run? <input type="number" id="RunTime"></p>
-                  <button id="addRunButton" class="button" float="left">Add</button>
+                  <p>How long time did you run? <input type="time" id="RunTime"></p>
+                  <button id="addRunButton" class="button" float="left" onclick="AddDistance()">Add</button>
                 </div>
               </div>
             </div>
@@ -130,6 +131,54 @@
     <section class="food">
       <h2>Food Recomendations</h2>
       
+      <div class="container">
+        
+        <div class="card">
+          <h3 class="title">Card 1</h3>
+          <div class="foodImage">
+            <img src="" alt="food">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="title">Card 1</h3>
+          <div class="foodImage">
+            <img src="" alt="food">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="title">Card 1</h3>
+          <div class="foodImage">
+            <img src="" alt="food">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="title">Card 1</h3>
+          <div class="foodImage">
+            <img src="" alt="food">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="title">Card 1</h3>
+          <div class="foodImage">
+            <img src="" alt="food">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="title">Card 1</h3>
+          <div class="foodImage">
+            <img src="" alt="food">
+          </div>
+        </div>
+
+      </div>
+
+      
+
     </section>
 
     <footer>

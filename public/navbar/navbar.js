@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", event =>{
     var name = document.getElementById("userName");
     name.textContent = storedObject.displayName; 
 
-    firebase.database().ref('users/' + storedObject.uid).set({
+    firebase.database().ref('users/' + storedObject.uid).update({
       username: storedObject.displayName,
       email: storedObject.email,
     });
@@ -20,11 +20,6 @@ document.addEventListener("DOMContentLoaded", event =>{
 
 var navbar;
 let navTop;
-
-
-
-
-
 
 function stickynavbar() {
   console.log("acitve");

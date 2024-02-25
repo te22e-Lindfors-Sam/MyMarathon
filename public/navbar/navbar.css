@@ -1,6 +1,7 @@
 nav {
     background-color: #141A53;
-    overflow: hidden;
+    overflow:hidden;
+
   }
   /* CSS for NavBar Anchor Tag i.e. Links  */
   nav a{
