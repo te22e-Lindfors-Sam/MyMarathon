@@ -44,8 +44,6 @@ document.addEventListener("DOMContentLoaded", event =>{
 
 
 function AddRace(){
-
-  console.log("addedRace");
   var raceName = document.getElementById("RaceName").value;
   var raceDist = document.getElementById("RaceDist").value;
   var raceTime = document.getElementById("RaceTime").value;
@@ -62,11 +60,9 @@ function AddRace(){
 }
 
 function AddDistance(){
-  console.log("added");
   var RunDist = document.getElementById("RunDist").value;
   var RunTime = document.getElementById("RunTime").value; 
 
-  console.log( new Time().toDateString());
   firebase.database().ref('users/' + user.uid + '/' + 'RunningsDistances/' + new Time().toDateString()).update({
     DistanceRunned: RunDist,
     TimeRunned: RunTime,
@@ -110,7 +106,6 @@ function UpdateChartRace(){
       raceList.removeChild(raceList.firstChild);
   }
     for (let value in valueCounts) {
-      console.log(total + " " + valueCounts[value] + " " + valueOffset);
       let thisColor = colors[colorIndex] + ' ' + lastProcentege + '%, ' + colors[colorIndex] + ' ' + ((valueOffset+valueCounts[value])/total * 100) + '%';
       
       lastProcentege= (valueOffset+valueCounts[value])/total*100;
@@ -165,7 +160,6 @@ function UpdateChartDist(){
     var colorIndex = 0;
     var valueOffset = 0;
     for (let value in valueCounts) {
-      console.log(total + " " + valueCounts[value] + " " + valueOffset);
       let thisColor = colors[colorIndex] + ' ' + lastProcentege + '%, ' + colors[colorIndex] + ' ' + ((valueOffset+valueCounts[value])/total * 100) + '%';
       
       lastProcentege= (valueOffset+valueCounts[value])/total*100;
@@ -177,7 +171,6 @@ function UpdateChartDist(){
       valueOffset += valueCounts[value];
       colorString += thisColor;
     }
-    console.log("shouldHaveUpdated");
     colorString = 'conic-gradient(' + colorString + ')';
     raceChart.style.backgroundImage = colorString;
 

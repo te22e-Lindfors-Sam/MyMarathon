@@ -22,7 +22,6 @@ var navbar;
 let navTop;
 
 function stickynavbar() {
-  console.log("acitve");
   if (window.scrollY >= navTop) {   
     navbar.classList.add('sticky');
   } 
