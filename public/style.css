@@ -31,10 +31,12 @@ main {
     text-align: center;
     rotate: -10deg;
 }
-section{
-    height: 75%;
+.sectionMan{
+    display: flex;
+    flex-direction: column;
 }
+
 footer{
     background-color: navy;
-    height: 20%;
+    height: 200px;
 }

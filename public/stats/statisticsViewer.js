@@ -2,51 +2,57 @@ let colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', 
 let slideIndex = 1;
 var user;
 
+//wating for everything to load
 document.addEventListener("DOMContentLoaded", event =>{
-    const storedValue = localStorage.getItem('user');
-    user = JSON.parse(storedValue);
-    //sets up the slide an loads the first one
-    showSlides(slideIndex);
-    UpdateChartRace();
-    UpdateChartDist();
+  //get the user
+  const storedValue = localStorage.getItem('user');
+  user = JSON.parse(storedValue);
 
-    // //Sets up the buttons in the slides
-    var raceBtn = document.getElementById("RaceBtn");
-    var raceModal = document.getElementById("RaceModal");
-    var distanceBtn = document.getElementById("DistanceBtn");
-    var distanceModal = document.getElementById("DistanceModal");
+  //sets up the slide an loads the first one and charts
+  showSlides(slideIndex);
+  UpdateChartRace();
+  UpdateChartDist();
 
-    var span = document.getElementsByClassName("close")[0];
+  //Sets up the buttons in the slides
+  var raceBtn = document.getElementById("race-btn");
+  var raceModal = document.getElementById("race-modal");
 
-    raceBtn.onclick = function() {
-        raceModal.style.display = "block";
-    };
-    distanceBtn.onclick = function() {
-        distanceModal.style.display = "block";
-    };
+  var distanceBtn = document.getElementById("distance-btn");
+  var distanceModal = document.getElementById("distance-model");
 
-    span.onclick = function() {
-        raceModal.style.display = "none";
-        distanceModal.style.display = "none";
-    };
+  var span = document.getElementsByClassName("close")[0];
+  var span2 = document.getElementsByClassName("close")[1];
 
-    window.onclick = function(event) {
-        if (event.target == raceModal) {
-          raceModal.style.display = "none";
-        }
-        if (event.target == distanceModal) {
-          distanceModal.style.display = "none";
-        }
+  raceBtn.onclick = function() {
+    raceModal.style.display = "block";
+  };
 
-    };
+  distanceBtn.onclick = function() {
+    distanceModal.style.display = "block";
+  };
+
+  span.onclick = function() {
+    raceModal.style.display = "none";
+  };
+
+  span2.onclick = function() {
+    distanceModal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+    if (event.target == raceModal) {
+      raceModal.style.display = "none";
+    }
+    if (event.target == distanceModal) {
+      distanceModal.style.display = "none";
+    }
+  };
 });
 
-
-
 function AddRace(){
-  var raceName = document.getElementById("RaceName").value;
-  var raceDist = document.getElementById("RaceDist").value;
-  var raceTime = document.getElementById("RaceTime").value;
+  var raceName = document.getElementById("race-name").value;
+  var raceDist = document.getElementById("race-dist").value;
+  var raceTime = document.getElementById("race-time").value;
 
   firebase.database().ref('users/' + user.uid + '/' + 'races/' + raceName).update({
     name: raceName,
@@ -54,22 +60,25 @@ function AddRace(){
     time: raceTime
   });
 
-  var raceModal = document.getElementById("RaceModal");
+  var raceModal = document.getElementById("race-modal");
   raceModal.style.display = "none";
   UpdateChartRace();
 }
 
 function AddDistance(){
-  var RunDist = document.getElementById("RunDist").value;
-  var RunTime = document.getElementById("RunTime").value; 
+  var RunDist = document.getElementById("distnace-dist").value;
+  var RunTime = document.getElementById("distance-time").value; 
 
-  firebase.database().ref('users/' + user.uid + '/' + 'RunningsDistances/' + new Time().toDateString()).update({
+  const currentTime = new Date();
+  const currentTimeString = currentTime.toLocaleTimeString();
+  console.log(currentTimeString);
+  firebase.database().ref('users/' + user.uid + '/' + 'RunningsDistances/' + currentTimeString).update({
     DistanceRunned: RunDist,
     TimeRunned: RunTime,
-    Date: new Time().toDateString()
+    Date: currentTimeString
   });
 
-  var distModal = document.getElementById("DistanceModal");
+  var distModal = document.getElementById("distance-model");
   distModal.style.display = "none";
   UpdateChartDist();
 }
@@ -77,7 +86,7 @@ function AddDistance(){
 function UpdateChartRace(){
   console.clear();
   let valueCounts = {};
-  var raceChart = document.getElementById("RacesRan");
+  var raceChart = document.getElementById("chart-race");
   let total = 0;
 
   var db = firebase.database().ref('users/' + user.uid + '/' + 'races/');
@@ -101,14 +110,14 @@ function UpdateChartRace(){
     var colorIndex = 0;
     var valueOffset = 0;
 
-    var raceList = document.getElementById("RaceList");
+    var raceList = document.getElementById("race-list");
     while (raceList.firstChild) {
       raceList.removeChild(raceList.firstChild);
-  }
+    }
     for (let value in valueCounts) {
       let thisColor = colors[colorIndex] + ' ' + lastProcentege + '%, ' + colors[colorIndex] + ' ' + ((valueOffset+valueCounts[value])/total * 100) + '%';
       
-      lastProcentege= (valueOffset+valueCounts[value])/total*100;
+      lastProcentege = (valueOffset+valueCounts[value])/total*100;
       
       if (lastProcentege != 100){
         thisColor += ',';
@@ -116,7 +125,6 @@ function UpdateChartRace(){
 
 
       const li = document.createElement("li");
-      // const div = document.createElement("div");
     
       li.textContent = value + "km Ran " + valueCounts[value] + " times";
       li.classList.add('custom-bullet');;
@@ -134,9 +142,9 @@ function UpdateChartRace(){
 }
 
 function UpdateChartDist(){
-  console.clear();
+  //counting all the total times ran a certain distance
   let valueCounts = {};
-  var raceChart = document.getElementById("chartDistance");
+  var raceChart = document.getElementById("chart-distance");
   let total = 0;
 
   var db = firebase.database().ref('users/' + user.uid + '/' + 'RunningsDistances/');
@@ -146,19 +154,26 @@ function UpdateChartDist(){
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         const element = data[key];
-        if (valueCounts.hasOwnProperty(element.distanace)) {
-          valueCounts[element.distanace]++;
+        if (valueCounts.hasOwnProperty(element.DistanceRunned)) {
+          valueCounts[element.DistanceRunned]++;
           total++;
         } else {
           total++;
-          valueCounts[element.distanace] = 1;
+          valueCounts[element.DistanceRunned] = 1;
         }
       }
     }
+      //for each distance ran choose a color and change it 
     var colorString = '';
     var lastProcentege = 0;
     var colorIndex = 0;
     var valueOffset = 0;
+
+    var raceList = document.getElementById("distance-list");
+    while (raceList.firstChild) {
+      raceList.removeChild(raceList.firstChild);
+    }
+
     for (let value in valueCounts) {
       let thisColor = colors[colorIndex] + ' ' + lastProcentege + '%, ' + colors[colorIndex] + ' ' + ((valueOffset+valueCounts[value])/total * 100) + '%';
       
@@ -167,6 +182,14 @@ function UpdateChartDist(){
       if (lastProcentege != 100){
         thisColor += ',';
       }
+
+      const li = document.createElement("li");
+    
+      li.textContent = value + "km Ran " + valueCounts[value] + " times";
+      li.classList.add('custom-bullet');;
+      li.style.color = colors[colorIndex];
+      raceList.appendChild(li);
+
       colorIndex++;
       valueOffset += valueCounts[value];
       colorString += thisColor;

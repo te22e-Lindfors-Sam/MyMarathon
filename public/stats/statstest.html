@@ -8,8 +8,6 @@
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.8.0/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
-
-
     <script defer src="/__/firebase/10.8.0/firebase-auth-compat.js"></script>
     <script defer src="/__/firebase/10.8.0/firebase-database-compat.js"></script>
     <script defer src="/__/firebase/10.8.0/firebase-firestore-compat.js"></script>
@@ -25,34 +23,13 @@
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="navbar/navbar.css">
-    <link rel="stylesheet" href="stats/statisticsViewer.css">
-    <link rel="stylesheet" href="food/foodShower.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="statisticsViewer.css">
   </head>
   <body>
-    <!-- <script src="user.js"></script> -->
-    <script src="navbar/navbar.js"></script>
-    <script src="stats/statisticsViewer.js"></script>
-    <script src="food/foodShower.js"></script>
+    <script src="statisticsViewer.js"></script>
 
-    <main class="main">
-      <div class="overlay">
-        <p>Are you ready for crossing the starting line <br> This is the begining of a great jurney <br>What are you waiting for?</p>
-        <img src="images/icons/podium.svg" alt="" class="overlay">
-      </div>
-    </main>
-
-    <nav id="navbar">
-      <a href="#running"><img src="images/icons/friends.svg" alt=""></a>
-      <a href="#running"><img src="images/icons/trophy.svg" alt=""></a>
-      <a href="#running"><img src="images/icons/runningman.svg" alt=""></a>
-      <a href="#running" style="float: right;"><p id="userName">John Doe</p><img src="images/icons/me.svg" alt=""></a>
-    </nav>
-
-    <div class="sectionMan">
-
-      <section>
+    <section>
         <div class="slideshow-container">
   
             <div class="statistics">
@@ -115,30 +92,16 @@
             </div>
             </div>
   
+            
           </div>
           
           <a class="prev" onclick="PlusSlides(-1)">&#10094;</a>
           <a class="next" onclick="PlusSlides(1)">&#10095;</a>
-  
         <div style="text-align:center">
           <span class="dot" onclick="CurrentSlide(1)"></span>
           <span class="dot" onclick="CurrentSlide(2)"></span>
         </div>
   
-      </section>
-  
-      <section>
-        <h2 class="food-title">Food Recomendations</h2>
-        <div class="food-container" id="food-container">
-        </div>
-      </section>
-
-      
-      <footer>
-        <div style="height: 200px;"></div>
-      </footer>
-    </div>
-
+    </section>
 
   </body>
-</html>
