@@ -1,7 +1,6 @@
 /* * {box-sizing:border-box} */
 
 .slideshow-container {
-  position: relative;
   margin: auto;
   height: 90%;
 }
