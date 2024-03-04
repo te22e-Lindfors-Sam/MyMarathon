@@ -1,0 +1,39 @@
+footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    grid-gap: 20px;
+    background-color: #141A53;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .footer-item {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    margin-bottom: 5px;
+  }
+  .nav-item a{
+    color: white;
+    text-decoration: none;
+  }
+
+  .copyright {
+    grid-column: span 2; /* Spanning two columns for copyright */
+    text-align: center;
+  }

@@ -36,7 +36,8 @@ main {
     flex-direction: column;
 }
 
-footer{
-    background-color: navy;
-    height: 200px;
+@media only screen and (max-width: 768px) {
+    .overlay img{
+        height: 30%;
+    }
 }

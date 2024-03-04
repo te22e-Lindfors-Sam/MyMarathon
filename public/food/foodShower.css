@@ -1,7 +1,6 @@
 .food-container {
   position: relative;
   height: 400px;
-  top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
