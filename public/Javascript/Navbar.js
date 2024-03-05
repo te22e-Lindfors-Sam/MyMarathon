@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", event =>{
     const app = firebase.app(); //only checks if the server is live
-    window.addEventListener('scroll', stickynavbar);
+    window.addEventListener('scroll', navbar);
     navbar = document.getElementById('navbar'); 
     navTop = navbar.offsetTop;
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", event =>{
 var navbar;
 let navTop;
 
-function stickynavbar() {
+function StickyNavbar() {
   if (window.scrollY >= navTop) {   
     navbar.classList.add('sticky');
   } 

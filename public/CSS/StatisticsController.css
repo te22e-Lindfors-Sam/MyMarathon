@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-.stat{
+.stat-item{
   height: 100%;
   width: 50%;
   text-align: center;
@@ -42,54 +42,8 @@ li{
   font-size: x-large;
 }
 
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
-}
 
-.modal-content {
-  position: relative;
-  top: 20%;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  padding-bottom: 10px;
-  border: 1px solid #888;
-  width: 40%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #141A53;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover, .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.prev, .next {
+.arrowPrev, .arrowNext {
   cursor: pointer;
   position: relative;
   bottom: 200px;
@@ -104,12 +58,12 @@ li{
   border-radius: 0 3px 3px 0;
 }
 
-.next {
+.arrowNext {
   float: right;
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
+.arrowPrev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -127,6 +81,7 @@ li{
 .active, .dot:hover {
   background-color: #717171;
 }
+
 .custom-bullet {
   list-style-type: none;
   position: relative;
@@ -137,12 +92,11 @@ li{
   font-size: 1.5em; 
 }
 
-/*Moble and some tablest*/
 @media only screen and (max-width: 768px) {
+  
   .slideshow-container {
     height: auto;
   }
-  
   
   .statistics{
     flex-direction: column;
@@ -156,7 +110,7 @@ li{
     margin-top: 3%;
   }
 
-  .list{
+  .statistics-list{
     padding-top: 50px;
   }
 
@@ -164,7 +118,7 @@ li{
     display: none;
   }
 
-  .prev, .next {
+  .arrowPrev, .arrowNext {
     bottom: 450px;
   }
 }

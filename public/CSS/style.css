@@ -2,9 +2,10 @@ body, html {
     height: 100%;
     padding: 0px;
     margin: 0px;
+    font-family: 'Poppins', serif;
 }
 main {
-    background-image: url(images/test.webp);
+    background-image: url(../images/test.webp);
     height: 90%;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,7 +13,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: right;
-}
+}¨
+
 .overlay{
     padding: 15%;
     height: 100%;
@@ -21,23 +23,27 @@ main {
     align-items: center;
     justify-content: center;
 }
-.overlay img{
-    height: 50%;
-    padding: 0px;
-}
 .overlay p{
     font-size: larger;
     font-weight: bolder;
     text-align: center;
     rotate: -10deg;
 }
-.sectionMan{
+.overlay img{
+    width: 40%;
+    padding: 0px;
+    position: relative;
+    left: 30%; /* should be 30% as the width is 40 son the total layout will be 30% 40% 30%*/
+}
+
+.articels{
     display: flex;
     flex-direction: column;
 }
 
 @media only screen and (max-width: 768px) {
-    .overlay img{
-        height: 30%;
+    .overlay p{
+        font-size: small;
+        rotate: 0deg;
     }
 }

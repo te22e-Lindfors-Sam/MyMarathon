@@ -1,6 +1,6 @@
 footer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* It makes as many colums it cans with the size 200px min 1fr max */
     grid-gap: 20px;
     background-color: #141A53;
     color: #fff;
@@ -34,6 +34,6 @@ footer {
   }
 
   .copyright {
-    grid-column: span 2; /* Spanning two columns for copyright */
+    grid-column: span 2; /* den ska va 2 lång */
     text-align: center;
   }

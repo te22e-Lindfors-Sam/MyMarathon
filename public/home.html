@@ -1,70 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.8.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
+    <title>MyMarathon - Home</title>
 
 
-    <script defer src="/__/firebase/10.8.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.8.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="navbar/navbar.css">
-    <link rel="stylesheet" href="stats/statisticsViewer.css">
-    <link rel="stylesheet" href="food/foodShower.css">
-    <link rel="stylesheet" href="footer.css">
+    <!-- My Stuff -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/FoodContainer.css">
+    <link rel="stylesheet" href="CSS/Footer.css">
+    <link rel="stylesheet" href="CSS/Modal.css">
+    <link rel="stylesheet" href="CSS/Navbar.css">
+    <link rel="stylesheet" href="CSS/StatisticsController.css">
+
+    <!-- Imported font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- <script src="user.js"></script> -->
-    <script src="navbar/navbar.js"></script>
-    <script src="stats/statisticsViewer.js"></script>
-    <script src="food/foodShower.js"></script>
+    <!-- My Scripts -->
+    <script src="Javascript/FoodController.js"></script>
+    <script src="Javascript/Login.js"></script>
+    <script src="Javascript/Navbar.js"></script>
+    <script src="Javascript/StatisticsController.js"></script>
 
-    <main class="main">
+        <!-- Firebase stuff -->
+        <script defer src="/__/firebase/10.8.0/firebase-app-compat.js"></script>
+
+        <script defer src="/__/firebase/10.8.0/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-firestore-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-functions-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-messaging-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-storage-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-remote-config-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-performance-compat.js"></script>
+    
+        <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <main id="Home" rel="preload">
       <div class="overlay">
         <p>Are you ready for crossing the starting line <br> This is the begining of a great jurney <br>What are you waiting for?</p>
-        <img src="images/icons/podium.svg" alt="" class="overlay">
+        <img src="images/icons/podium.svg" alt="Image of a podium" >
       </div>
     </main>
 
     <nav id="navbar">
-      <a href="#running"><img src="images/icons/friends.svg" alt=""></a>
-      <a href="#running"><img src="images/icons/trophy.svg" alt=""></a>
-      <a href="#running"><img src="images/icons/runningman.svg" alt=""></a>
-      <a href="#running" style="float: right;"><p id="userName">John Doe</p><img src="images/icons/me.svg" alt=""></a>
+      <a href="#running"><img src="images/icons/friends.svg" alt="Link to your friends"></a>
+      <a href="#running"><img src="images/icons/trophy.svg" alt="Link to your wins"></a>
+      <a href="#running"><img src="images/icons/runningman.svg" alt="Link to Races avaible in your area"></a>
+      <a href="#running" style="float: right;"><p id="userName">John Doe</p><img src="images/icons/me.svg" alt="Link to your profile"></a>
     </nav>
 
-    <div class="sectionMan">
+    <div class="articels">
 
       <section>
         <div class="slideshow-container">
   
             <div class="statistics">
             
-                <div class="stat">
+                <div class="stat-item">
                     <h2>Races Ran</h2>
                     <div class="piechart" id="chart-race"></div>
                 </div>
             
-                <div class="stat">
-                    <ul id="race-list" class="list">
+                <div class="stat-item">
+                    <ul id="race-list" class="statistics-list">
                     </ul>
   
                     <button id="race-btn" class="button" style="float: left; margin-left: 60px;">Add Race</button>
@@ -76,9 +81,9 @@
                                 <h2>Modal Header</h2>
                             </div>
                             <div class="modal-body">
-                                <p>What was the race called? <input type="text" id="race-name"></p>
-                                <p>How many kms did you run? <input type="number" id="race-dist"></p>
-                                <p>How long time did you run? <input type="time" id="race-time"></p>
+                                <Label for="race-name">What was the name of the race?</Label><input type="text" id="race-name"></p>
+                                <Label for="race-dist">How long was the race?</Label><input type="number" id="race-dist">
+                                <Label for="race-time">How long time did it take?</Label><input type="time" id="race-time">
                                 <button class="button" float="left" onclick="AddRace()">Add</button>
                             </div>
                         </div>
@@ -88,13 +93,13 @@
   
             <div class="statistics">
             
-                <div class="stat">
+                <div class="stat-item">
                     <h2>Distances Ran</h2>
                     <div class="piechart" id="chart-distance"></div>
                 </div>
             
-            <div class="stat list">
-              <ul id="distance-list">
+            <div class="stat-item">
+              <ul id="distance-list" class="statistics-list">
               </ul>
   
               <button id="distance-btn" class="button" style="float: left; margin-left: 60px;">Add Distance Ran</button>
@@ -106,8 +111,8 @@
                     <h2>Add the distance you ran</h2>
                   </div>
                   <div class="modal-body">
-                    <p>How many kms did you run? <input type="number" id="distnace-dist"></p>
-                    <p>How long time did you run? <input type="time" id="distance-time"></p>
+                    <Label for="distnace-dist">How long did you run?</Label><input type="number" id="distnace-dist">
+                    <Label for="distance-time">How long time did it take?</Label> <input type="time" id="distance-time">
                     <button class="button" float="left" onclick="AddDistance()">Add</button>
                   </div>
                 </div>
@@ -118,8 +123,8 @@
   
           </div>
           
-          <a class="prev" onclick="PlusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="PlusSlides(1)">&#10095;</a>
+          <a class="arrowPrev" onclick="PlusSlides(-1)" href="#prev">&#10094;</a>
+          <a class="arrowNext" onclick="PlusSlides(1)" href="#next">&#10095;</a>
   
         <div style="text-align:center">
           <span class="dot" onclick="CurrentSlide(1)"></span>
@@ -139,18 +144,22 @@
         <div class="footer-item logo">
           <img src="images/Logo.webp" alt="MyMarathon Logo">
         </div>
-          <div class="footer-item nav">
-            <ul class="nav">
-              <li class="nav-item"><a href="#Home">Home</a></li>
-              <li class="nav-item"><a href="#About">About</a></li>
-              <li class="nav-item"><a href="#Services">Home</a></li>
-              <li class="nav-item"><a href="#Contact">Home</a></li>
-            </ul>
-          </div>
-          <div class="footer-item">Address: Crafoords väg 12, 113 24 Stockholm</div>
-          <div class="footer-item">Phone: 073 123 45 67</div>
-          <div class="footer-item">Email: service@mymarathon.com</div>
-          <div class="footer-item copyright">&copy; 2024 MyMarathon. All rights reserved.</div>
+        <div class="footer-item nav">
+          <ul class="nav">
+            <li class="nav-item"><a href="#Home">Home</a></li>
+            <li class="nav-item"><a href="#About">About</a></li>
+            <li class="nav-item"><a href="#Services">Services</a></li>
+            <li class="nav-item"><a href="#Contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-item nav">
+          <ul class="nav">
+            <li class="nav-item"><a href="#Home">Address: Crafoords väg 12, 113 24 Stockholm</a></li>
+            <li class="nav-item"><a href="#Home">Phone: 073 123 45 67</a></li>
+            <li class="nav-item"><a href="#Home">Email: service@mymarathon.com</a></li>
+          </ul>
+        </div>
+        <div class="footer-item copyright">&copy; 2024 MyMarathon. All rights reserved.</div>
       </footer>
     </div>
 
