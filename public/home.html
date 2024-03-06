@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="CSS/StatisticsController.css">
 
     <!-- Imported font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  </head>
+  
+    <!-- Preload Google Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+    <!-- Font stylesheet with font-display: swap; -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"></head>
   <body>
     <!-- My Scripts -->
     <script src="Javascript/FoodController.js"></script>
@@ -32,7 +36,7 @@
 
         <script defer src="/__/firebase/10.8.0/firebase-auth-compat.js"></script>
         <script defer src="/__/firebase/10.8.0/firebase-database-compat.js"></script>
-        <script defer src="/__/firebase/10.8.0/firebase-firestore-compat.js"></script>
+        <!-- <script defer src="/__/firebase/10.8.0/firebase-firestore-compat.js"></script> -->
         <script defer src="/__/firebase/10.8.0/firebase-functions-compat.js"></script>
         <script defer src="/__/firebase/10.8.0/firebase-messaging-compat.js"></script>
         <script defer src="/__/firebase/10.8.0/firebase-storage-compat.js"></script>
@@ -45,7 +49,7 @@
     <main id="Home" rel="preload">
       <div class="overlay">
         <p>Are you ready for crossing the starting line <br> This is the begining of a great jurney <br>What are you waiting for?</p>
-        <img src="images/icons/podium.svg" alt="Image of a podium" >
+        <img rel="preload" src="images/icons/podium.svg" alt="Image of a podium" >
       </div>
     </main>
 

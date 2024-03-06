@@ -38,7 +38,7 @@ function SelectRecepiesToShow(){
             cardContainer.appendChild(h3);
     
             var divImg = document.createElement("div");
-            divImg.alt = "FoodImage"
+            divImg.alt = data[key].namn + " Recept";
             divImg.classList.add("food-image");
             cardContainer.appendChild(divImg);
     

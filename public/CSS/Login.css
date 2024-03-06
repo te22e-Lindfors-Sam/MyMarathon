@@ -37,18 +37,11 @@ body, html {
     border-bottom-color: gray;
 }
 
-@media screen and (max-width: 480px) {
-    .loginModel{
-        width: 70%;
-        height: 70%;
-        top: 15%;
-    }
-  }
 
   @media screen and (max-width: 880px) {
     .loginModel{
         width: 80%;
-        height: 40%;
+        height: 80%;
         top: 30%;
     }
   }
